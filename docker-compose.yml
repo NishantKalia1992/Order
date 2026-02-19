@@ -5,7 +5,7 @@ order-app:
 build: .
 container_name: order-container
 ports:
-   -"5000:5000"
+   -"8002:8002"
 restart: always
 environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/order_service

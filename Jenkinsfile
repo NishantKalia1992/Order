@@ -31,5 +31,12 @@ pipeline{
                 }
             }
         }
+        stage('Deploy to Docker Desktop') {
+            steps {
+                echo 'Deploying application and database locally...'
+                bat 'docker-compose down'
+                bat 'docker-compose up -d'
+            }
+        }
     }
 }
