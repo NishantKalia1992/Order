@@ -1,0 +1,10 @@
+version: '3.8'
+
+service:
+order-app:
+build: .
+container_name: order-container
+ports:
+   -"5000:5000"
+restart: always
+   
