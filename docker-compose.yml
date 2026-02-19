@@ -3,10 +3,10 @@ version: '3.8'
 services:  # <--- FIXED: Added the 's'
   # Spring Boot Application
   order-app: # <--- FIXED: Indented 2 spaces
-    build: .
+    image: nishantkalia13/order-service:latest
     container_name: order-container
     ports:
-      - "5000:8002"  # <--- FIXED: I updated this to match your Dockerfile!
+      - "8002:8002"  # <--- FIXED: I updated this to match your Dockerfile!
     restart: always
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/order_service
@@ -24,7 +24,7 @@ services:  # <--- FIXED: Added the 's'
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: order_service
     ports:
-      - "3362:3306"
+      - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     networks: # <--- FIXED: Indented 4 spaces
