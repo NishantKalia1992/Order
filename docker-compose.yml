@@ -24,7 +24,7 @@ services:  # <--- FIXED: Added the 's'
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: order_service
     ports:
-      - "3306:3306"
+      - "3362:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     networks: # <--- FIXED: Indented 4 spaces
