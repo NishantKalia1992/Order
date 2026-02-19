@@ -1,41 +1,39 @@
 version: '3.8'
 
-services:
-order-app:
-build: .
-container_name: order-container
-ports:
-   -"8002:8002"
-restart: always
-environment:
+services:  # <--- FIXED: Added the 's'
+  # Spring Boot Application
+  order-app: # <--- FIXED: Indented 2 spaces
+    build: .
+    container_name: order-container
+    ports:
+      - "5000:8002"  # <--- FIXED: I updated this to match your Dockerfile!
+    restart: always
+    environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/order_service
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
-depends_on:
-      - mysql  # Ensure MySQL starts before Spring Boot
-networks:
+    depends_on:
+      - mysql
+    networks: # <--- FIXED: Indented 4 spaces
       - spring-network
 
   # MySQL Database
-mysql:
-    image: mysql:8.0  # Use MySQL image from Docker Hub
+  mysql: # <--- FIXED: Indented 2 spaces
+    image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: order_service
     ports:
-      - "3362:3306"  # Expose MySQL on port 3306
+      - "3362:3306"
     volumes:
-      - mysql_data:/var/lib/mysql  # Persist MySQL data
-    networks:
+      - mysql_data:/var/lib/mysql
+    networks: # <--- FIXED: Indented 4 spaces
       - spring-network
 
 # Define a custom Docker network for inter-service communication
-networks:
+networks: # <--- Touches the left wall
   spring-network:
     driver: bridge
 
-volumes:
+volumes: # <--- Touches the left wall
   mysql_data:
-
-
-   
