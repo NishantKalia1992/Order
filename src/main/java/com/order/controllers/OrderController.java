@@ -48,7 +48,7 @@ public class OrderController {
 	@GetMapping("/getAll")
 	public ResponseEntity<SuccessResponse<List<OrderResponseDto>>> getAllOrders(){
 		List<OrderResponseDto> order = orderService.getAllOrder();
-		SuccessResponse<List<OrderResponseDto>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Orders list fpund successfully", order);
+		SuccessResponse<List<OrderResponseDto>> successResponse = new SuccessResponse<>(HttpStatus.OK, "Orders list found successfully", order);
 		return new ResponseEntity<SuccessResponse<List<OrderResponseDto>>>(successResponse, HttpStatus.OK);
 	}
 	
